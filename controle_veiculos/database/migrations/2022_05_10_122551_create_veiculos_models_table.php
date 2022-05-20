@@ -17,9 +17,11 @@ class CreateVeiculosModelsTable extends Migration
             $table->id();
             $table->string('placa');
             $table->string('cor');
+            $table->UnsignedBigInteger('proprietario_id');
             $table->integer('ano'); 
             $table->string('marca');
             $table->string('modelo');
+            $table->foreign('proprietario_id')->references('id')->on('usuarios_models');
             $table->timestamps();
         });
     }
