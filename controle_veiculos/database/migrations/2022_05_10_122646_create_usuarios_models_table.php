@@ -18,7 +18,7 @@ class CreateUsuariosModelsTable extends Migration
             $table->string('nome',50);
             $table->string('cpf');
             $table->string('email',100);
-            $table->integer('telefone');
+            $table->string('telefone');
             $table->timestamps();
         });
     }
