@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function proprietario_id(){
+        return hasMany(proprietario_id::class,'proprietario_id');
+    }
 }
