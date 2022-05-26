@@ -53,5 +53,10 @@ class UsuarioController extends Controller
         $usuario->delete();
         return 'Usuário excluido com sucesso';
     } 
+
+    public function VerTodosUsuarios(){
+        $usuario = UsuariosModel::all();
+        return view('site.VisualizarTodosUsuarios',['usuario'=>$usuario]);
+    }
     
 }

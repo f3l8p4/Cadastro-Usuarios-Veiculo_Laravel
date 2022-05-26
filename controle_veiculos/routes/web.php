@@ -6,6 +6,8 @@ Route::get('/',function(){
     return view('welcome');
 });
 
+
+Route::get('/visualizarTodosVeiculos','VeiculosController@VerTodosVeiculos')->name('VerTodosVeiculos');
 Route::get('/veiculo', 'VeiculosController@veiculo');
 Route::post('/veiculo','VeiculosController@createVeiculo')->name('criar_veiculo');
 Route::get('/visualizarVeiculo/{id}','VeiculosController@VisualizarVeiculos');
@@ -14,6 +16,7 @@ Route::post('/editarVeiculos/{id}','VeiculosController@AtualizarVeiculos')->name
 Route::get('/excluirVeiculos/{id}','VeiculosController@deleteVeiculos');
 Route::post('/excluirVeiculos/{id}','VeiculosController@destroyVeiculos')->name('excluirVeiculo');
 
+Route::get('/visualizarTodosUsuarios','UsuarioController@VerTodosUsuarios');
 Route::get('/usuario', 'UsuarioController@usuario');
 Route::get('/visualizarUsuario/{id}','UsuarioController@VisualizarUsuarios');
 Route::post('/usuario', 'UsuarioController@create')->name('criar_usuario');

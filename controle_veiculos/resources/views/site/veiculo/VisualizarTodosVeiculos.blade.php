@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+          <td>ID</td>
+          <td>Placa</td>
+          <td>ano</td>
+          <td>Modelo</td>
+          <td>Marca</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($veiculo as $veiculo)
+        <tr>
+            <td>{{$veiculo->id}}</td>
+            <td>{{$veiculo->placa}}</td>
+            <td>{{$veiculo->cor}}</td>
+            <td>{{$veiculo->ano}}</td>
+            <td>{{$veiculo->modelo}}</td>
+            <td>{{$veiculo->marca}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>

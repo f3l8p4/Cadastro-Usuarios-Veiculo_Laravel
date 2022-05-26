@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+          <td>ID</td>
+          <td>nome</td>
+          <td>email</td>
+          <td>CPF</td>
+          <td>Telefone</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($usuario as $usuario)
+        <tr>
+            <td>{{$usuario->id}}</td>
+            <td>{{$usuario->nome}}</td>
+            <td>{{$usuario->email}}</td>
+            <td>{{$usuario->cpf}}</td>
+            <td>{{$usuario->telefone}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>

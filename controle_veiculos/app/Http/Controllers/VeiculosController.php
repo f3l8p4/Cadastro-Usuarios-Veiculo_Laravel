@@ -54,4 +54,9 @@ class VeiculosController extends Controller
         $veiculo->delete();
         return 'Veiculo excluido com sucesso';
     } 
+
+    public function VerTodosVeiculos(){
+        $veiculo = VeiculosModel::all();
+        return view('site.veiculo.VisualizarTodosVeiculos',['veiculo'=>$veiculo]);
+    }
 }
