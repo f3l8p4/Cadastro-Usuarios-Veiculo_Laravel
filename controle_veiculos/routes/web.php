@@ -24,4 +24,8 @@ Route::get('/editarUsuario/{id}','UsuarioController@edit');
 Route::post('/editarUsuario/{id}','UsuarioController@AtualizarUsuario')->name('edit');
 Route::get('/excluirUsuario/{id}','UsuarioController@delete');
 Route::post('/excluirUsuario/{id}','UsuarioController@destroy')->name('excluirUsuario');
+
+Route::get('/teste',function(){
+    return view('teste');
+})
 ?>
