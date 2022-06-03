@@ -56,7 +56,7 @@ class UsuarioController extends Controller
 
     public function VerTodosUsuarios(){
         $usuario = UsuariosModel::all();
-        return view('site.VisualizarTodosUsuarios',['usuario'=>$usuario]);
+        return response()->json($usuario,201);
     }
     
 }

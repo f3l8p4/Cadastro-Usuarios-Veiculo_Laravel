@@ -46,6 +46,8 @@
                     </div>
                     <div class="modal-body">
 
+                        <Alert/>
+
                         <div class="form-group">
                             <label for="">Nome</label>
                             <input type="text" v-model="nome" class="form-control">
@@ -86,6 +88,9 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+    import Alert from './Alert.vue'
+    let Alert = vue.Component('Alert')
     export default {
         data(){
             return{
@@ -118,5 +123,8 @@
                     )
                 }
             },
+        components:{
+            Alert
+        }
     }
 </script>
