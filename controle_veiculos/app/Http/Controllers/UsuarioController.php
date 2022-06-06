@@ -29,7 +29,7 @@ class UsuarioController extends Controller
 
     public function edit($id){
         $usuario = UsuariosModel::findOrFail($id);
-        return view('site.editUsers',['users'=>$usuario]);
+        return response()->json($usuario,200);
     }
 
     public function AtualizarUsuario(Request $request,$id){
