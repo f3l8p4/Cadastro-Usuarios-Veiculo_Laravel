@@ -21,3 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('Usuario', 'UsuarioController@create');
 
 Route::get('VisualizarUsuario','UsuarioController@VerTodosUsuarios');
+
+Route::get('VisualizarUser/{id}','UsuarioController@VisualizarUsuarios');
+
+Route::get('AlterarUser/{id}','UsuarioController@visualizarUsuarios');
+
+Route::post('excluirUsuario/{id}','UsuarioController@destroy');

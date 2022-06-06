@@ -18,13 +18,13 @@ class UsuarioController extends Controller
             'telefone'=>$request->telefone,
         ]);
 
-        return 'User criado com sucesso';
+        return response()->json();
 
     }
 
     public function VisualizarUsuarios($id){
         $usuario = UsuariosModel::findOrFail($id);
-        return view('site.ViewUsers',['users'=>$usuario]);
+        return response()->json($usuario,200);
     }
 
     public function edit($id){
@@ -45,13 +45,11 @@ class UsuarioController extends Controller
 
     public function delete($id){
         $usuario = UsuariosModel::findOrFail($id);
-        return view('site.deleteUser',['usuario'=>$usuario]);
+        return response()->json('O produto foi removido com sucesso', 200);
     }
 
     public function destroy($id){
         $usuario = usuariosModel::findOrFail($id);
-        $usuario->delete();
-        return 'Usuário excluido com sucesso';
     } 
 
     public function VerTodosUsuarios(){
