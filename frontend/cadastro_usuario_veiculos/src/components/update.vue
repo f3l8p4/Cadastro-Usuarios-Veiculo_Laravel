@@ -57,24 +57,19 @@
         },
         methods: {
             atualizar(){
-                this.GetUser = 'http://127.0.0.1:8000/api/AlterarUser/'+this.usuario.id 
-
-                let formData = new FormData()
-                formData.append('_method','put')
-                formData.append('nome',this.usuario.nome)
-                formData.append('cpf',this.usuario.cpf)
-                formData.append('telefone',this.usuario.telefone)
-                formData.append('email',this.usuario.email)
-
                 let config = {
-                    Headers:{
-                        'Content-type' : 'aplication/json',
-                        'Accept' : 'aplication/json'
-                    }
+                      Headers:{
+                          'Content-Type': 'application/json',
+                          'Accept':'application/json'
+                      }
                 }
-
-                axios.post(this.GetUser, formData, config).then( response =>{
-                    console.log('usuario atualizado')
+                this.GetUser = 'http://127.0.0.1:8000/api/AlterarUser/'+this.usuario.id 
+                axios.put(this.GetUser).then( response =>{
+                    nome = this.usuario.nome,
+                    cpf = this.usuario.cpf,
+                    telefone =  this.usuario.telefone,
+                    email = this.usuario.email,
+                    console.log('Usuario Atualizado')
                 }).catch(
                     errors =>{console.log(errors)}
                 )

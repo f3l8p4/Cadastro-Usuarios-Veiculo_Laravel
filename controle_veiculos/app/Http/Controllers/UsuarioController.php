@@ -40,7 +40,7 @@ class UsuarioController extends Controller
             'email'=>$request->email,
             'telefone'=>$request->telefone,
         ]);
-        return 'Usuario atualizado';
+        return response()->json('Atualizado', 200);
     }
 
     public function delete($id){
@@ -50,6 +50,7 @@ class UsuarioController extends Controller
 
     public function destroy($id){
         $usuario = usuariosModel::findOrFail($id);
+        $usuario->delete();
     } 
 
     public function VerTodosUsuarios(){

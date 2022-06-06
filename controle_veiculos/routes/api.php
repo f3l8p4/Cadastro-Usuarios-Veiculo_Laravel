@@ -24,6 +24,6 @@ Route::get('VisualizarUsuario','UsuarioController@VerTodosUsuarios');
 
 Route::get('VisualizarUser/{id}','UsuarioController@VisualizarUsuarios');
 
-Route::get('AlterarUser/{id}','UsuarioController@visualizarUsuarios');
+Route::put('AlterarUser/{id}','UsuarioController@AtualizarUsuario');
 
-Route::post('excluirUsuario/{id}','UsuarioController@destroy');
+Route::delete('excluirUsuario/{id}','UsuarioController@destroy');

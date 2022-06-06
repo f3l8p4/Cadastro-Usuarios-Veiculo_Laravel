@@ -73,22 +73,15 @@
                 if(!confirmacao) {
                   return false;
                 }
-                let formData = new FormData()
-                formData.append('_method','delete')
-
                 let config = {
                     Headers:{
-                        'Accept':'aplication/json',
+                        'Authorization': this.Authorization,
+                        'Content-type':'aplication/json'
                     }
-                  }
-
-                axios.post(this.removeUsers,formData,config).then(response=>{
-                    console.log('registro removido com sucesso')
-                }).catch(
-                    errors=>{
-                        console.log(errors)
-                    }
-                )
+                }
+                axios.delete(this.removeUsers,config).then(res=>{
+                    console.log('Usuário excluido com sucesso')
+                }).catch(erro=>{console.log(erro)})
                 },
             },
           mounted() {
