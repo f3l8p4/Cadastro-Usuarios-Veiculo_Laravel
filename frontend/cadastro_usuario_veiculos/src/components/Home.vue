@@ -35,11 +35,6 @@
           <!--Modal de criação do usuário-->
             <Modal/>
           <!--Modal-->
-
-          <!--Modal de atualização de registros-->
-            
-          <!-- Modal -->
-
     </table>
   </div>
       
@@ -84,7 +79,6 @@
                 let config = {
                     Headers:{
                         'Accept':'aplication/json',
-                        'Autorization': this.token
                     }
                   }
 
