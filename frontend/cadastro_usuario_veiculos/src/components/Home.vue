@@ -19,19 +19,18 @@
                   <td>{{u.telefone}}</td>
                   <td>{{u.email}}</td>
                   <td colspan="1">
-                      <button class="btn btn-warning btn-sm mr-2 font-weight-light" data-toggle="modal" data-target="#atualizar-modal">Alterar</button>
-                      
-                      <Update :usuario="u"/>
-
+                      <button class="btn btn-warning btn-sm mr-2 font-weight-light" data-toggle="modal" data-target="#atualizar-modal" @click="alterar(u)">Alterar</button>
+                    </div>
                       <button  class="btn btn-danger btn-sm font-weight-light"  @click="remover(u)">Remover</button>
                   </td>
+                  <Update :usuario="u"></Update>
               </tr>  
           </tbody>
           <button  type="button" class="btn btn-dark mt-3" data-toggle="modal" data-target="#exampleModal">
               Adicionar usuário
           </button>
-          
-
+          <!--Update-->
+        <!--Fim do update-->
           <!--Modal de criação do usuário-->
             <Modal/>
           <!--Modal-->
@@ -45,7 +44,6 @@
   import Alert from './Alert.vue'
   import Modal from './add.vue'
   import Update from './update.vue'
-  import pagination from './pagination'
   import { useStore } from 'vuex'
   export default {
       
@@ -53,6 +51,7 @@
           return{
               GetUsers: 'http://127.0.0.1:8000/api/VisualizarUsuario',
               removeUsers: 'http://127.0.0.1:8000/api/excluirUsuario/',
+              AlterUser: 'http://127.0.0.1:8000/api/AlterarUser/',
               Status:'',
               usuario:[],
           }
@@ -83,12 +82,16 @@
                     console.log('Usuário excluido com sucesso')
                 }).catch(erro=>{console.log(erro)})
                 },
+                AlterarUser(){
+                    this.AlterUser = 'http://127.0.0.1:8000/api/AlterarUser/'
+                    console.log(this.usuario.data)
+                }
             },
           mounted() {
               this.recuperarDados();
           },
           components:{
-              Alert,pagination,Modal,Update
+              Alert,Modal,Update
           },
   }
 </script>

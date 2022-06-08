@@ -40,7 +40,6 @@ class UsuarioController extends Controller
             'email'=>$request->email,
             'telefone'=>$request->telefone,
         ]);
-        return response()->json('Atualizado', 200);
     }
 
     public function delete($id){
