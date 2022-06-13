@@ -18,14 +18,13 @@ class VeiculosController extends Controller
             'ano'=>$request->ano,
             'modelo'=>$request->modelo,
         ]);
-
-        return 'Veiculo criado com sucesso';
+        return response()->json();
 
     }
 
     public function VisualizarVeiculos($id){
         $veiculo = VeiculosModel::findOrFail($id);
-        return view('site.veiculo.VisualizarVeiculo',['veiculo'=>$veiculo]);
+        return response()->json();
     }
 
     public function editarVeiculos($id){
@@ -41,7 +40,7 @@ class VeiculosController extends Controller
             'ano'=>$request->ano,
             'modelo'=>$request->modelo,
         ]);
-        return 'veiculo atualizado';
+        return response()->json();
     }
 
     public function deleteVeiculos($id){
@@ -57,6 +56,6 @@ class VeiculosController extends Controller
 
     public function VerTodosVeiculos(){
         $veiculo = VeiculosModel::all();
-        return view('site.veiculo.VisualizarTodosVeiculos',['veiculo'=>$veiculo]);
+        return response()->json();
     }
 }

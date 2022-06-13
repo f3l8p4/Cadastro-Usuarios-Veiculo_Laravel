@@ -11,26 +11,32 @@
             <div class="modal-body">
 
                 <div class="form-group">
-                    <label for="">Nome</label>
-                    <input type="text" v-model="usuario.nome" class="form-control">
+                    <label for="">Placa</label>
+                    <input type="text" v-model="veiculo.placa" class="form-control">
                 </div>
     
                 
                 <div class="form-group">
-                    <label for="">cpf</label>
-                    <input type="text" v-model="usuario.cpf" class="form-control">
+                    <label for="">cor</label>
+                    <input type="text" v-model="veiculo.cor" class="form-control">
                 </div>
     
                 
                 <div class="form-group">
-                    <label for="">Telefone</label>
-                    <input type="text" v-model="usuario.telefone" class="form-control">
+                    <label for="">marca</label>
+                    <input type="text" v-model="veiculo.marca" class="form-control">
                 </div>
     
                 <div class="form-group">
-                    <label for="">email</label>
-                    <input type="text" v-model="usuario.email" class="form-control">
+                    <label for="">modelo</label>
+                    <input type="text" v-model="veiculo.modelo" class="form-control">
                 </div>
+
+                <div class="form-group">
+                    <label for="">ano</label>
+                    <input type="text" v-model="veiculo.ano" class="form-control">
+                </div>
+
             </div>
 
             <div class="modal-footer">

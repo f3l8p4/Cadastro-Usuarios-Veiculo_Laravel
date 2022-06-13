@@ -16,3 +16,8 @@ Route::get('VisualizarUsuario','UsuarioController@VerTodosUsuarios');
 Route::put('AlterarUser/{id}','UsuarioController@AtualizarUsuario');
 
 Route::delete('excluirUsuario/{id}','UsuarioController@destroy');
+
+
+Route::get('VisualizarVeiculo','VeiculosController@VerTodosVeiculos');
+
+Route::post('veiculo','VeiculosController@create');
