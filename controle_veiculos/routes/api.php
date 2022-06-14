@@ -22,6 +22,6 @@ Route::get('VisualizarVeiculo','VeiculosController@VerTodosVeiculos');
 
 Route::post('veiculo','VeiculosController@createVeiculo');
 
-Route::delete('deleteVeiculo/{id}','VeiculosController@destroy');
+Route::delete('deleteVeiculo/{id}','VeiculosController@destroyVeiculos');
 
 Route::put('AlterarVeiculo/{id}','VeiculosController@AtualizarVeiculos');
