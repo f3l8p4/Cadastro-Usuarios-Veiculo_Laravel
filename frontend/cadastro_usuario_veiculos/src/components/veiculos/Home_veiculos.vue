@@ -1,4 +1,4 @@
-<template>
+<template :onLoad="handle">
     <div class="border w-75 ml-5">
         <table class="table table-hover">
             <thead>
@@ -19,19 +19,17 @@
                     <td>{{v.marca}}</td>
                     <td>{{v.modelo}}</td>
                     <td colspan="1">
-                        <button class="btn btn-warning btn-sm mr-2 font-weight-light" data-toggle="modal" data-target="#Atualizar-modal" @click="get(u)">Alterar</button>
-                         <Update :usuario="u"/>    
-                        <button  class="btn btn-danger btn-sm font-weight-light"  @click="remover(u)">Remover</button>
+                        <button class="btn btn-warning btn-sm mr-2 font-weight-light" data-toggle="modal" data-target="#Atualizar-modal1">Alterar</button>
+                         <Update :veiculo="u"/>    
+                        <button  class="btn btn-danger btn-sm font-weight-light"  @click="remover(v)">Remover</button>
                     </td>
                 </tr>  
             </tbody>
             <button  type="button" class="btn btn-dark mt-3" data-toggle="modal" data-target="#exampleModal1">
                 Adicionar Veiculo
             </button>
-            <!--Modal de criação do usuário-->
-              <Add/>
-            <!--Modal-->
       </table>
+
     </div>
   </template>
   
@@ -42,41 +40,41 @@
         
         data(){
             return{
-                GetVehicles: 'http://127.0.0.1:8000/api/VisualizarVeiculo',
                 veiculo:[],
             }
         },
         methods: {
-                recuperarDados(){
-                      axios.get(this.GetVehicles).then(response=>{
+                recuperarVeiculos(){
+                    let GetVehicles = 'http://127.0.0.1:8000/api/VisualizarVeiculo'
+                      axios.get(GetVehicles).then(response=>{
                           this.veiculo = response.data
-                          console.log(this.veiculo)
+                          console.log('Ola')
                       }
                       )
+                      console.log('Ola')
                 },
                 remover(v){
-                    let veiculo = v.id
-                    let url = ''+v.id
-                    let confirmacao = confirm('Tem certeza que deseja remover o veiculo '+v.nome)
+                    let url = 'http://127.0.0.1:8000/api/deleteVeiculo/'+v.id
+                    let confirmacao = confirm('Tem certeza que deseja remover o veiculo '+v.placa)
                     if(!confirmacao) {
                         return false;
                     }
                     let config = {
                     Headers:{
-                        'Authorization': this.Authorization,
                         'Content-type':'aplication/json'
                     }
                     }
-                    axios.delete(this.removeUsers,config).then(res=>{
-                        console.log('Usuário excluido com sucesso')
+                    axios.delete(url,config).then(res=>{
+                        console.log('Veiculo excluido com sucesso')
                     }).catch(erro=>{console.log(erro)})
                 },
-            mounted() {
-                this.recuperarDados();
-            },
     },
+    mounted(){
+                this.recuperarVeiculos()
+                console.log('Ola')
+            },
     component:{
-        Add
+        Add,Update
     }
 }
   

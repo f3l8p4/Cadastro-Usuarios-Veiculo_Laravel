@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" id="Atualizar-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal fade" id="Atualizar-modal1" tabindex="-1" role="dialog"  aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -52,11 +52,11 @@
     export default{
         data(){
             return{
-                GetUser: 'http://127.0.0.1:8000/api/AlterarUser/',
+                GetVehicle: 'http://127.0.0.1:8000/api/AlterarUser/',
             }
         },
        props:{
-            usuario:{
+            veiculo:{
                 type:Object,
                 default:[]
             }

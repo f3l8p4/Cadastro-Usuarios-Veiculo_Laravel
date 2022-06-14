@@ -20,4 +20,8 @@ Route::delete('excluirUsuario/{id}','UsuarioController@destroy');
 
 Route::get('VisualizarVeiculo','VeiculosController@VerTodosVeiculos');
 
-Route::post('veiculo','VeiculosController@create');
+Route::post('veiculo','VeiculosController@createVeiculo');
+
+Route::delete('deleteVeiculo/{id}','VeiculosController@destroy');
+
+Route::put('AlterarVeiculo/{id}','VeiculosController@AtualizarVeiculos');

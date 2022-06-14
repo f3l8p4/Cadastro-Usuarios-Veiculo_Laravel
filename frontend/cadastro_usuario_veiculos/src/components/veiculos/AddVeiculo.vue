@@ -35,6 +35,11 @@
                     <label for="">modelo</label>
                     <input type="text" v-model="modelo" class="form-control">
                 </div>
+
+                <div class="form-group">
+                    <label for="">Proprietario</label>
+                    <input type="text" v-model="proprietario_id" class="form-control">
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
@@ -49,17 +54,37 @@
 export default {
     data(){
         return{
-            url: 'http://127.0.0.1:8000/api/Veiculo',
               placa : '',
               cor : '',
               ano : '', 
               marca : '',
-              model:'',
+              modelo:'',
+              proprietario_id:''
         }
     },
     methods: {
         salvar(){
-            console.log('usuario')
+            let url =  'http://127.0.0.1:8000/api/veiculo'
+            let veiculo = {
+                        placa: this.placa,
+                        cor : this.cor,
+                        ano: this.ano,
+                        marca: this.marca,
+                        modelo: this.modelo,
+                        proprietario_id: this.proprietario_id
+            }
+            let config = {
+                Headers:{
+                    'Content-Type': 'application/json',
+                    'Accept':'application/json' 
+                }
+            }
+            axios.post(url,veiculo,config).then(response =>{
+                console.log('veiculo atualizado com sucesso')
+            }).catch( error =>{
+                console.log(error)
+            })
+            
         }
     }
 }

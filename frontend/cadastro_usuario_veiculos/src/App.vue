@@ -1,6 +1,8 @@
 <template>
  <Home/> 
  <HomeVue/>
+ <Modal/>
+ <Add/>
 </template>
 
 <script>
@@ -9,11 +11,14 @@ import Home from './components/Home.vue'
 import HomeVue from './components/veiculos/Home_veiculos.vue'
 import Vue from 'vue';
 import Vuex from 'vuex'
+import Modal from './components/add.vue'
+import Add from './components/veiculos/AddVeiculo.vue'
+
 
 export default {
   name: 'App',
   components: {
-    Home,HomeVue
+    Home,HomeVue,Modal,Add
   },
 }
 

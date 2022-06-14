@@ -19,7 +19,7 @@
                   <td>{{u.email}}</td>
                   <td colspan="1">
                       <button class="btn btn-warning btn-sm mr-2 font-weight-light" data-toggle="modal" data-target="#Atualizar-modal" @click="get(u)">Alterar</button>
-                       <Update :usuario="u"/>    
+                       <Update :usuario="u"/>
                       <button  class="btn btn-danger btn-sm font-weight-light"  @click="remover(u)">Remover</button>
                   </td>
               </tr>  
@@ -27,18 +27,12 @@
           <button  type="button" class="btn btn-dark mt-3" data-toggle="modal" data-target="#exampleModal">
               Adicionar usuário
           </button>
-          <!--Modal de criação do usuário-->
-            <Modal/>
-          <!--Modal-->
     </table>
   </div>
 </template>
 
 <script>
-
-  import Alert from './Alert.vue'
-  import Modal from './add.vue'
-  import Update from './update.vue'
+   import Update from './update.vue' 
   export default {
       
       data(){
@@ -83,9 +77,10 @@
           mounted() {
               this.recuperarDados();
           },
+          
           components:{
-              Alert,Modal,Update
-          },
+            Update
+          }
   }
 
 </script>

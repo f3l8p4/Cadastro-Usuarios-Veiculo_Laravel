@@ -17,6 +17,7 @@ class VeiculosController extends Controller
             'cor'=>$request->cor,
             'ano'=>$request->ano,
             'modelo'=>$request->modelo,
+            'proprietario_id' => $request -> proprietario_id
         ]);
         return response()->json();
 
@@ -51,11 +52,10 @@ class VeiculosController extends Controller
     public function destroyVeiculos($id){
         $veiculo = VeiculosModel::findOrFail($id);
         $veiculo->delete();
-        return 'Veiculo excluido com sucesso';
     } 
 
     public function VerTodosVeiculos(){
         $veiculo = VeiculosModel::all();
-        return response()->json();
+        return response()->json($veiculo,201);
     }
 }
