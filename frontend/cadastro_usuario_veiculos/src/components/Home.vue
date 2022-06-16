@@ -32,7 +32,7 @@
 </template>
 
 <script>
-   import Update from './update.vue' 
+   import Update from './update.vue'
   export default {
       
       data(){

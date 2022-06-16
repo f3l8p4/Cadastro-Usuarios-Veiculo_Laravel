@@ -57,6 +57,7 @@
         },
         methods: {
             atualizar(u){
+                console.log(u.id)
                 let user = {
                     nome : this.usuario.nome,
                     telefone : this.usuario.telefone,

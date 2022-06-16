@@ -3,6 +3,7 @@
  <HomeVue/>
  <Modal/>
  <Add/>
+
 </template>
 
 <script>
@@ -13,6 +14,7 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 import Modal from './components/add.vue'
 import Add from './components/veiculos/AddVeiculo.vue'
+import VueBasicAlert from 'vue-basic-alert'
 
 
 export default {
