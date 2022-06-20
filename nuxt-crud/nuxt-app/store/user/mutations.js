@@ -7,7 +7,4 @@ export default{
           state[k] = payload[k];
         })
       },
-      changeData(state,payload){
-        
-      }
 }

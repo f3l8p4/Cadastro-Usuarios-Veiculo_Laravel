@@ -59,7 +59,7 @@
                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                               <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Registro de usuário
+                                    Atualização de registro de usuário
                                  </h3>
                                  <button  @click="ShowUpdateModal = false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -138,14 +138,8 @@
             return{
                 ShowModal : false,
                 ShowUpdateModal : false,
-                usuario:{
-                    nome: '',
-                    cpf: '',
-                    email: '',
-                    telefone: '',
-                    usuario: []
-                },
-                selected : ''
+                usuario: [],
+                selected : []
             }
         },          
         methods:{
@@ -163,15 +157,16 @@
             getUser(u){
                 this.selected = [u.id,u.nome,u.cpf,u.email,u.telefone]
             },
-            alterarUser(u){
+            alterarUser(){
+                let selected = this.selected
                 let params = {
-                    nome: this.selected[1],
-                    cpf: this.selected[2],
-                    email: this.selected[3],
-                    telefone: this.selected[4],
+                    nome: selected[1],
+                    cpf: selected[2],
+                    email: selected[3],
+                    telefone:selected[4],
                 }
-                this.$store.dispatch('user/updateUser',this.selected[0],params)
-            }
+                this.$store.dispatch('user/updateUser',selected[0],params)
         },
+        }
     }
 </script>
