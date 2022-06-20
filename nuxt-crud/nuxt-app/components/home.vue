@@ -1,6 +1,6 @@
 <template>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="table dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="usuario in $store.state.user.usuario.data" :key="usuario.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr v-for="usuario in $store.state.user.usuario.data" :key="usuario.id" class="elements dark:bg-gray-800 dark:border-gray-700">
                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                         {{usuario.id}}
                     </td>
@@ -41,13 +41,13 @@
                     <td class="px-6 py-4">
                         {{usuario.telefone}}
                     </td>
-                    <td class="px-6 py-4 text-right">
-                        <button @click="getUser(usuario),ShowUpdateModal = true" class="bg-yellow-400 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                    <td class="actions">
+                        <button @click="getUser(usuario),ShowUpdateModal = true" class="alterar">
                             Alterar
                           </button>
                     </td>
-                    <td class="px-6 py-4 text-right">
-                        <button @click="deletarUser(usuario.id)" class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
+                    <td class="actions">
+                        <button @click="deletarUser(usuario.id)" class="remover">
                             Remover
                           </button>
                     </td>
@@ -61,7 +61,7 @@
                                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                     Atualização de registro de usuário
                                  </h3>
-                                 <button  @click="ShowUpdateModal = false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                                 <button  @click="ShowUpdateModal = false" type="button" class="close text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
@@ -75,7 +75,7 @@
                                      </label>
                                    </div>
                                    <div class="md:w-2/3">
-                                     <input v-model="selected[1]" class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text">
+                                     <input v-model="name" class="input bg-white-200" id="inline-full-name" type="text">
                                    </div>
                                  </div>
                                  <div class="md:flex md:items-center mb-6">
@@ -85,7 +85,7 @@
                                      </label>
                                    </div>
                                    <div class="md:w-2/3">
-                                     <input v-model="selected[2]" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-text" type="text">
+                                     <input v-model="cpf" class="input bg-white-200" id="inline-text" type="text">
                                    </div>
                                  </div>
                     
@@ -96,7 +96,7 @@
                                        </label>
                                      </div>
                                      <div class="md:w-2/3">
-                                       <input v-model="selected[3]" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-text" type="text">
+                                       <input v-model="email" class="input bg-white-200" id="inline-text" type="text">
                                      </div>
                                    </div>
                     
@@ -107,7 +107,7 @@
                                        </label>
                                      </div>
                                      <div class="md:w-2/3">
-                                       <input v-model="selected[4]" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-text" type="text">
+                                       <input v-model="telefone" class="input bg-white-200" id="inline-text" type="text">
                                      </div>
                                    </div>
                                </form>
@@ -128,7 +128,8 @@
 
             </tbody>
         </table>
-    </div>
+        <button class="btn-blue">OLA</button>
+      </div>
 </template>
 <script>
     import Add from './AddModal.vue'
@@ -138,8 +139,12 @@
             return{
                 ShowModal : false,
                 ShowUpdateModal : false,
-                usuario: [],
-                selected : []
+                selected : [],
+                id:'',
+                name:'',
+                cpf:'',
+                email:'',
+                telefone:''
             }
         },          
         methods:{
@@ -156,16 +161,20 @@
             },
             getUser(u){
                 this.selected = [u.id,u.nome,u.cpf,u.email,u.telefone]
+                this.id = this.selected[0]
+                 this.name = this.selected[1]
+                this.cpf = this.selected[2]
+                this.email = this.selected[3]
+                this.telefone = this.selected[4]
             },
             alterarUser(){
-                let selected = this.selected
                 let params = {
-                    nome: selected[1],
-                    cpf: selected[2],
-                    email: selected[3],
-                    telefone:selected[4],
+                    nome: this.name,
+                    cpf:this.cpf,
+                    email: this.email,
+                    telefone:this.telefone,
                 }
-                this.$store.dispatch('user/updateUser',selected[0],params)
+                this.$store.dispatch('user/updateUser',this.id,params)
         },
         }
     }

@@ -85,7 +85,7 @@
                     email: this.email,
                     telefone: this.telefone,
                 }
-                this.$store.dispatch('user/CriarUsuario',params).then(res =>{
+                this.$store.dispatch('user/CreateUser',params).then(res =>{
                   console.log('Usuario criado com sucesso')
                 }).catch(error => console.log(error))
             }
