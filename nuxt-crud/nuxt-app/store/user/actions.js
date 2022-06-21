@@ -5,8 +5,6 @@ export default{
             console.log(res)
         })},
         CreateUser({ commit, dispatch },params) {
-            const UserData = params;
-            commit("setData",{UserData})
             return this.$axios.post('Usuario',params)
         },
         deleteUser({commit,dispatch},id){
