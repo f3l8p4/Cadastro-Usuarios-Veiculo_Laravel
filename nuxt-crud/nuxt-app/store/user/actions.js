@@ -11,8 +11,6 @@ export default{
             return this.$axios.delete('excluirUsuario/'+id)
         },
         updateUser({commit, dispatch}, id,param){
-            const usuario = param;
-            commit("setData",{usuario})
             return this.$axios.put('AlterarUser/'+id,param).then(res=>{
                 console.log(res)
             }).catch(error=>{{usuario}})
