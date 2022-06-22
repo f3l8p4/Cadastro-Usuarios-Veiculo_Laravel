@@ -42,9 +42,16 @@ export default {
   modules: [
     '@nuxtjs/axios'
   ],
-  axios:{
-    BaseURL: 'http://127.0.0.1:8000/api/'
+  axios: {
+    baseURL: process.env.API, // Used as fallback if no runtime config is provided
   },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
