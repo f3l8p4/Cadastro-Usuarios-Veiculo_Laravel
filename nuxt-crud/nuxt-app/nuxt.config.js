@@ -42,13 +42,9 @@ export default {
   modules: [
     '@nuxtjs/axios'
   ],
-
-    axios:{
-      GetUser : 'http://127.0.0.1:8000/api/VisualizarUsuario',
-      AddUser : 'http://127.0.0.1:8000/api/Usuario',
-      deleteUser : 'http://127.0.0.1:8000/api/excluirUsuario/',
-      updateUser : 'http://127.0.0.1:8000/api/AlterarUser/'
-    },
+  axios:{
+    BaseURL: 'http://127.0.0.1:8000/api/'
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {

@@ -76,11 +76,6 @@
                 }
         }
         },
-        computed(){
-          id:{
-            type:Object
-          }
-        },
         methods: {
             Atualizar(id){
               console.log(this.id)
