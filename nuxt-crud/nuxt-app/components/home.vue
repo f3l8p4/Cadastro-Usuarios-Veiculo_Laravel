@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="usuario in $store.state.user.usuario" :key="usuario.id" class="elements dark:bg-gray-800 dark:border-gray-700">
+                <tr v-for="usuario in $store.state.user.usuario.data" :key="usuario.id" class="elements dark:bg-gray-800 dark:border-gray-700">
                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                         {{usuario.id}}
                     </td>
