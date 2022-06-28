@@ -71,6 +71,7 @@
                 },
                 get(u){
                     let usuario = u
+                    
                     console.log(u.id)
                 }
             },
