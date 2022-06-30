@@ -2,9 +2,9 @@ version: '3.9'
 services:
   web-server:
     image: nginx:1.21.1
-    container_name: webdev-nginx
+    container_name: nginx
     ports:
-      - "50:50"
+      - "3000:3000"
     networks:
       - web-dev
     volumes:
@@ -15,10 +15,10 @@ services:
       dockerfile: ./nuxt.dockerfile
       context: .
     ports:
-      - '5000:5000'
+      - '3000:3000'
   db:
     image: mysql:8.0.26
-    container_name: webdev-mysql
+    container_name: nuxt-mysql
     restart: unless-stopped
     volumes: 
       - ../confs/mysql_db:/var/lib/mysql

@@ -1,5 +1,5 @@
-FROM node:14.17.1-alpine
-
-RUN npm create nuxt-app @nuxt-app
-
-CMD [ "npm", "start" ]
+# Stage 1 - build
+FROM node:lts-alpine
+RUN npm init nuxt-app
+RUN npm run dev
+CMD ["npm"]
