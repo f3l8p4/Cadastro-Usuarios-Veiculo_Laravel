@@ -4,7 +4,7 @@ services:
     image: nginx:1.21.1
     container_name: nginx
     ports:
-      - "3000:3000"
+      - "5002:5001"
     networks:
       - web-dev
     volumes:
@@ -15,7 +15,7 @@ services:
       dockerfile: ./nuxt.dockerfile
       context: .
     ports:
-      - '3000:3000'
+      - '5002:5001'
   db:
     image: mysql:8.0.26
     container_name: nuxt-mysql
